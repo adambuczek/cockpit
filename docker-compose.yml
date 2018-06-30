@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+
+  nginx-proxy:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      # use dir as a default web root
+      - "./:/usr/share/nginx/html"
+      # use external nginx default configuration file
+      - "./docker-config/default.conf:/etc/nginx/conf.d/default.conf"
+    container_name: proxy
+    links:
+      - phpfpm:php
+
+  phpfpm:
+    build:
+      context: './docker-config'
+      dockerfile: './php.dockerfile'
+    image: cockpit-fpm
+    volumes:
+      - "./:/usr/share/nginx/html"
+      - "./docker-config/php.ini:/usr/local/etc/php/php.ini"
+    container_name: phpfpm

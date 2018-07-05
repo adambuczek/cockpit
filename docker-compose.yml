@@ -12,6 +12,7 @@ services:
       - "./public:/usr/share/nginx/html"
       # use external nginx default configuration file
       - "./docker-config/default.conf:/etc/nginx/conf.d/default.conf"
+      - "./docker-config/server_name:/etc/nginx/server_name"
     container_name: proxy
     links:
       - phpfpm:php

@@ -21,3 +21,4 @@
 !.gitkeep
 !/public/storage/*/index.html
 defines.php
+/docker-config/server_name

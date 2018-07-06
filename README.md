@@ -1,5 +1,3 @@
-> This configuration works almost 100%. Only problem is that GD generates thumbnails in lowest possible quality.
-
 # Cockpit Next
 
 [![Backers on Open Collective](https://opencollective.com/cockpit/backers/badge.svg)](#backers) [![Sponsors on Open Collective](https://opencollective.com/cockpit/sponsors/badge.svg)](#sponsors)

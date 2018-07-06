@@ -2,7 +2,7 @@ version: '3'
 
 services:
 
-  nginx-proxy:
+  proxy:
     image: nginx:alpine
     ports:
       - "80:80"
@@ -13,7 +13,6 @@ services:
       # use external nginx default configuration file
       - "./docker-config/default.conf:/etc/nginx/conf.d/default.conf"
       - "./docker-config/server_name:/etc/nginx/server_name"
-    container_name: proxy
     links:
       - phpfpm:php
 
@@ -25,4 +24,3 @@ services:
     volumes:
       - "./public:/usr/share/nginx/html"
       - "./docker-config/php.ini:/usr/local/etc/php/php.ini"
-    container_name: phpfpm
